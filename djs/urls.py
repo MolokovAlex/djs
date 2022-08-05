@@ -15,7 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('catalog/', index),
 ]
+
+
+urlpatterns += [
+    # path('catalog/', include('catalog.urls')),      # приобращении к http://127.0.0.1:8000/catalog/
+    path('', include('catalog.urls')),      # приобращении к http://127.0.0.1:8000/
+]
+
+
+
+# # Добавьте URL соотношения, чтобы перенаправить запросы с корневого URL, на URL приложения
+# from django.views.generic import RedirectView
+# urlpatterns += [
+#     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+# ]
