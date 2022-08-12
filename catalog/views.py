@@ -13,7 +13,7 @@ def index(request):
     #     res += f'<div>\n<p>{item.title}</p>\n<p>{item.name}</p>\n</div>\n<hr>\n'
     # # return HttpResponse('Hello world')
     # return HttpResponse(res)
-    context = {'catal': cat, 'title': 'Список'}
+    context = {'catal': cat, 'title': 'Список объявлений'}
     return render(request, 'catalog\index.html', context=context)
 
 # def test(request):
