@@ -4,16 +4,20 @@
 
 # Программа MOVITO (MOlokovVITO) - попытка создать учебный проект сайта объявлений типа Avito или DirectLot
 
+160822 - добавлена таблица Seller, создана связь с таблицей Catalog
+
+
+
 
 120822 - изменение названия проекта и конфигурационной папки с более приличным именем \config
         подключения админки, изменения по корректному отображению в админке
-
-
-
-        
+commit 90b006f5172c40d9c6af8ac2229d7e10104e6dea (HEAD -> master)
+Author: MolokovAlex <milky77@mail.ru>
+Date:   Fri Aug 12 19:50:33 2022 +0300
+    120822        
          
 
-108022 - создана миграция, создан шаблон
+100822 - создана миграция, создан шаблон
 commit ee84297eaf9ddf281c4062e0e041f740c59de9ff (HEAD -> master, origin/master)
 Author: MolokovAlex <milky77@mail.ru>
 Date:   Wed Aug 10 20:37:23 2022 +0300
