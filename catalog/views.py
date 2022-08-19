@@ -1,20 +1,29 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Catalog
+from .models import Catalog, Seller
 
 
 def index(request):
-    # print (request)
     cat = Catalog.objects.all()
+    sellers = Seller.objects.all()
 
-    # res = '<h1>Список Компонентов</h1>'
-    # for item in cat:
-    #     res += f'<div>\n<p>{item.title}</p>\n<p>{item.name}</p>\n</div>\n<hr>\n'
-    # # return HttpResponse('Hello world')
-    # return HttpResponse(res)
-    context = {'catal': cat, 'title': 'Список объявлений'}
+    context = {
+        'catal': cat, 
+        'title': 'Список объявлений',
+        'sellers': sellers,
+        }
     return render(request, 'catalog\index.html', context=context)
 
-# def test(request):
-#     return HttpResponse('<h1>Тестовая страеница</h1>')
+def get_seller(request, seller_id):
+    cat = Catalog.objects.filter(seller_id=seller_id)
+    sellers = Seller.objects.all()
+    seller = Seller.objects.get(pk = seller_id)
+    context = {
+        'catal': cat, 
+        'sellers': sellers,
+        'title': 'Список объявлений',
+        'seller': seller,
+        }
+    # print (seller)
+    return render(request, template_name = 'catalog/sellers.html', context=context)

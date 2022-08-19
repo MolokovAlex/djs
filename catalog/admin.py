@@ -6,7 +6,7 @@ from django.contrib import admin
 from .models import Catalog, Seller
 
 class CatalogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'name', 'seller', 'create_at', 'update_at', 'is_publ')
+    list_display = ('id', 'title', 'name', 'seller', 'create_at', 'update_at', 'is_publ', 'comments')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'name')
     list_editable = ('is_publ',)

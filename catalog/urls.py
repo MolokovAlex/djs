@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', index),       # приобращении к http://127.0.0.1:8000/
+    path('', index, name='name_path_home'),       # приобращении к http://127.0.0.1:8000/
+    path('seller/<int:seller_id>/', get_seller, name='name_path_seller'),
     # path('test/', test),    # приобращении к http://127.0.0.1:8000/test/
 ]
 
