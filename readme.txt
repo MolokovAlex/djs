@@ -4,7 +4,17 @@
 
 # Программа MOVITO (MOlokovVITO) - попытка создать учебный проект сайта объявлений типа Avito или DirectLot
 
+190822_2 - создание двухуровневого наследования шаблонов
+
+
+
+
+
 190822 - создание get запроса, двух похожих шаблонов
+commit b2fb5fb1d16a358e1ef27329a71d2b3ea72b2a03 (HEAD -> master, origin/master)
+Author: MolokovAlex <milky77@mail.ru>
+Date:   Fri Aug 19 18:38:35 2022 +0300
+    '190822'
 
 160822 - добавлена таблица Seller, создана связь с таблицей Catalog
 commit 39affce462f6db9344c7974b5b1caa95a484c17e (HEAD -> master, origin/master)
