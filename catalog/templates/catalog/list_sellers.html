@@ -1,0 +1,6 @@
+<div class="list-group">
+    {{ arg1}} {{ arg2}}
+    {% for  itemSeller in list_of_sellers %}
+    <a href=" {% url 'name_path_seller' itemSeller.pk %}" class="list-group-item list-group-item-action"> {{ itemSeller.seller_name }}</a>
+    {% endfor %}
+</div>
