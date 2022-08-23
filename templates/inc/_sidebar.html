@@ -1,5 +1,7 @@
 {% load catalog_tags %}
 
+
+{% comment %}
 <div class="list-group">
     {% get_list_sellers as list_of_sellers %}
     {% for  itemSeller in list_of_sellers %}
@@ -8,5 +10,7 @@
 </div>
 
 <br>
+
+{% endcomment %}
 
 {% show_sellers arg2='User' %}

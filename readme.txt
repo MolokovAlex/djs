@@ -4,10 +4,17 @@
 
 # Программа MOVITO (MOlokovVITO) - попытка создать учебный проект сайта объявлений типа Avito или DirectLot
 
+230822 - обратное разрешение адресов get_absolute_url и reverse, создание шаблона чтения объявления view_advert.html,  метод get_object_or_404
+
+
+
+
+
 220822 - опробирование пользовательских тэгов
-
-
-
+commit 530d6d991703f55ccffcffef793fa8dcb23e06a8 (HEAD -> master, origin/master)
+Author: MolokovAlex <milky77@mail.ru>
+Date:   Mon Aug 22 19:27:47 2022 +0300
+    '220822'
 
 190822_2 - создание двухуровневого наследования шаблонов
 commit 7b59e5eab47c57c0ca572e0b70e57e8774d2bbce (HEAD -> master, origin/master)

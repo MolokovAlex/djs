@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block title %} 
-{{ catalogFiltredInIdSeller.seller_name }} 
+{{ advertItem.title }} 
 {% endblock %}
-
 
 {% block sidebar %}
 <!-- --------------------------------------отображение списка продавцов --------------------------------------------------------------- -->
@@ -13,32 +12,37 @@
 
 
 
+
 {% block content %} 
-  {% for item in catalogFiltredInIdSeller %}
+
+
       <div class="card mb-3">
         <div class="card-header">
-          Продавец: <a href="{% url 'name_path_seller' item.seller.pk %}"> {{ item.seller }} </a>
+          Продавец: <a href="{{advertItem.seller.get_absolute_url }}"> {{ advertItem.seller }} </a>
+          {% comment %} <!-- Продавец: <a href="{% url 'name_path_seller' item.seller.pk %}"> {{ item.seller }} </a> -->{% endcomment %}
         </div>
         <!-- --------------------------------------отображение картинки --------------------------------------------------------------- -->
         <div class="media">
-          {% if item.photo %}
-          <img src="{{item.photo.url}}" alt="" width="350" class="mr-3">
+          {% if advertItem.photo %}
+          <img src="{{advertItem.photo.url}}" alt="" width="350" class="mr-3">
           {% else %}
           <img src="\media\photos\new1.png" alt="" width="350" class="mr-3">
           {% endif %}
           <!-- --------------------------------------отображение текста --------------------------------------------------------------- -->
           <div class="media-body">
-            <h5 class="card-title">{{ item.title }}</h5>
-            <p class="card-text">{{ item.comments }}</p>
-            <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read mo...</a>
+            <h5 class="card-title">{{ advertItem.title }}</h5>
+            <p class="card-text">{{ advertItem.comments }}</p>
           </div>
         </div>
+        
         <!-- --------------------------------------отображение даты пубикации --------------------------------------------------------------- -->
         <div class="card-footer text-muted">
           {{ item.create_at|date:"Y-m-d H:i:s" }}
         </div>
+       
       </div>
-{% endfor %}
+
 
 
 {% endblock %}
+

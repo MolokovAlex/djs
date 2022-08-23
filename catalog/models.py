@@ -1,7 +1,8 @@
-from distutils.command.upload import upload
-from pyexpat import model
-from tabnanny import verbose
+# from distutils.command.upload import upload
+# from pyexpat import model
+# from tabnanny import verbose
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -33,6 +34,9 @@ class Catalog(models.Model):
         verbose_name = 'Объявление'
         verbose_name_plural = 'Объявления'
         ordering = ['-create_at']
+    
+    def get_absolute_url(self):
+        return reverse('name_path_view_advert', kwargs={"advert_id": self.pk})
 
 class Seller(models.Model):
 #     #seller_id = models.IntegerField(blank=True)       # сделает автоматически
@@ -47,6 +51,9 @@ class Seller(models.Model):
 
     def __str__(self) -> str:
         return self.seller_name
+
+    def get_absolute_url(self):
+        return reverse('name_path_seller', kwargs={"seller_id": self.pk})
 
 # class Genre(models.Model):
 #     name = model.CharField(max_length=150)
