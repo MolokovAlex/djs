@@ -4,11 +4,9 @@
 
 # Программа MOVITO (MOlokovVITO) - попытка создать учебный проект сайта объявлений типа Avito или DirectLot
 
+240822 - размещение статических файлов в каталоге Static
+
 230822 - обратное разрешение адресов get_absolute_url и reverse, создание шаблона чтения объявления view_advert.html,  метод get_object_or_404
-
-
-
-
 
 220822 - опробирование пользовательских тэгов
 commit 530d6d991703f55ccffcffef793fa8dcb23e06a8 (HEAD -> master, origin/master)
