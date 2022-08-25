@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Catalog, Seller
+from .forms import AdvertForm
 
 
 def index(request):
@@ -35,3 +36,14 @@ def view_advert(request, advert_id):
         # 'title': 'Фильтрация объявлений по Продавцам',
         }
         return render(request, 'catalog/view_advert.html', context= data_in_template_ViewAdvert)
+
+def add_advert(request):
+    
+    if request.method =='POST':
+        pass
+    else:
+        form_advert = AdvertForm()
+    data_in_template_AddAdvert = {
+        'formAdvert': form_advert,
+    }
+    return render(request, 'catalog/add_advert.html', context= data_in_template_AddAdvert)

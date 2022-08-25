@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Добавление объявления 
+{% endblock %}
+
+{% block sidebar %}
+<!-- --------------------------------------отображение списка продавцов --------------------------------------------------------------- -->
+{% include 'inc/_sidebar.html' %}
+<!-- ----------------------------------------------------------------------------------------------------- -->
+{% endblock %}
+
+
+
+
+{% block content %} 
+
+
+<h1>Добавление объявления</h1>
+
+<form action="{% url 'name_path_add_advert' %}" method="post">
+   {% csrf_token %}    <!-- защита формы от подделки злоумышленника. Добавляется csrf токен в форму, который при каждом обновлении формы меняется. 
+    Этот токен  проверяется web-сервером на валидность -->
+    
+    
+    {% comment %} {{ formAdvert.as_p }} {% endcomment %}
+    
+
+    {{ formAdvert.non_field.errors }}
+    <div class="form-group">
+        <label for ="{{ formAdvert.title.id_for_label}}">Наименование</label>
+        {{ formAdvert.title }}
+        <div class="invalid-feedback">
+            {{ formAdvert.title.errors }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for ="{{ formAdvert.name.id_for_label}}">Название</label>
+        {{ formAdvert.name }}
+        <div class="invalid-feedback">
+            {{ formAdvert.name.errors }}
+        </div>
+    </div> 
+    
+    <div class="form-group">
+        <label for ="{{ formAdvert.is_publ.id_for_label}}">Опубликовано</label>
+        {{ formAdvert.is_publ }}
+        <div class="invalid-feedback">
+            {{ formAdvert.is_publ.errors }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for ="{{ formAdvert.seller.id_for_label}}">Продавец</label>
+        {{ formAdvert.seller }}
+        <div class="invalid-feedback">
+            {{ formAdvert.seller.errors }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for ="{{ formAdvert.comments.id_for_label}}">Продавец</label>
+        {{ formAdvert.comments }}
+        <div class="invalid-feedback">
+            {{ formAdvert.comments.errors }}
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block">Добавить объявления</button>
+</form>
+
+
+{% endblock %}
+
