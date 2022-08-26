@@ -22,10 +22,11 @@
    {% csrf_token %}    <!-- защита формы от подделки злоумышленника. Добавляется csrf токен в форму, который при каждом обновлении формы меняется. 
     Этот токен  проверяется web-сервером на валидность -->
     
+    <!-- первый вариант -->
+    {{ formAdvert.as_p }} 
     
-    {% comment %} {{ formAdvert.as_p }} {% endcomment %}
-    
-
+    <!-- второй вариант -->
+    {% comment %}
     {{ formAdvert.non_field.errors }}
     <div class="form-group">
         <label for ="{{ formAdvert.title.id_for_label}}">Наименование</label>
@@ -66,7 +67,22 @@
             {{ formAdvert.comments.errors }}
         </div>
     </div>
-    
+    {% endcomment %}
+
+
+    <!-- третий вариант -->
+    {% comment %}
+    {% for field in formAdvert %}
+    <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        <div class="invalid-feedback">
+            {{ field.errors }}
+        </div>
+    </div>
+    {% endfor%}
+    {% endcomment %}
+
     <button type="submit" class="btn btn-primary btn-block">Добавить объявления</button>
 </form>
 

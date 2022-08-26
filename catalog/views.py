@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from .models import Catalog, Seller
@@ -40,7 +40,11 @@ def view_advert(request, advert_id):
 def add_advert(request):
     
     if request.method =='POST':
-        pass
+        form_advert = AdvertForm(request.POST)
+        if form_advert.is_valid():
+            print(form_advert.cleaned_data)
+            Catalog.objects.create(**form_advert.cleaned_data)  # **- распаковка словаря
+            return redirect('name_path_home')
     else:
         form_advert = AdvertForm()
     data_in_template_AddAdvert = {
